@@ -8,7 +8,7 @@ This repo contains an example implementation of the Non-Parameter Attention (NPA
 ### Requirements
 Environments: Win-64 or Linux-64, GPU:TITAN RTX. Other requirements can be seen in `requirements.txt`.
 
-Note that we offer a pure python version and a python+cpp version to acceralte python loop. The details can be seen in `run.sh`.
+Note that we offer a pure python version and a python+cpp version to accelerate python loop. The details can be seen in `run.sh`.
 
 
 ### Run the Codes

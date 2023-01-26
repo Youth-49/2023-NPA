@@ -12,7 +12,7 @@ Note that we offer a pure python version and a python+cpp version to accelerate 
 
 
 ### Run the Codes
-To evalution the performance of SGC+NPA, please run the commands in `run.sh`.
+To evalute the performance of SGC+NPA, please run the commands in `run.sh`.
 
 
 ### Test Results

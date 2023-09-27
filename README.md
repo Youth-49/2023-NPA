@@ -1,4 +1,4 @@
-## Towards Scalable and Deep Graph Neural Networks
+## Towards Better Propagation of Non-parametric GNNs
 
 
 ### Overview

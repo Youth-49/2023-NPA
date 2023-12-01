@@ -77,13 +77,13 @@ $$
 
 Since both prediction $\mathop{\arg\max} \Phi(\sum_{v_j \in N(v_i)}w_{ij}\mathbf{x_j})$ and $\mathop{\arg\max} \Phi(\sum_{v_j \in N(v_i)}w_{ij}\mathbf{x_j} - \sum_{v_j \in N(v_i)} w_{ij}\mathbf{\epsilon_{ij}})$ are equal to the prediction $\mathop{\arg\max} \Phi(\mathbf{x_i})$, a expected classifier should make the same prediction given the two inputs. If the two inputs are closer, the classifier is much easier to train to make the same prediction. On the contrary, if the two inputs are far away, the classifier must approximate a complex decision manifold in the feature space, which could be intractable, leading to sub-optimal results. Thus, we measure the difference between $\sum_{v_j \in N(v_i)}w_{ij}\mathbf{x_j}$ and  $\sum_{v_j \in N(v_i)}w_{ij}\mathbf{x_j} - \sum_{v_j \in N(v_i)} w_{ij}\mathbf{\epsilon_{ij}}$ as:
 
-``math
+```math
 \begin{equation}\begin{split}
 diff. =& \|(\sum_{v_j \in N(v_i)}w_{ij}\mathbf{x_j}) - (\sum_{v_j \in N(v_i)} w_{ij}\mathbf{x_j} - \sum_{v_j \in N(v_i)} w_{ij}\mathbf{\epsilon_{ij}})\|_2  \\
  =& \|\sum_{v_j \in N(v_i)} w_{ij}\mathbf{\epsilon_{ij}}\|_2 \\ 
  \leq& \sum_{v_j\in N(v_i)}w_{ij}\|\mathbf{\epsilon_{ij}}\|_2.
  \end{split}\end{equation}
-``math
+```math
 
 and according to the *rearrangement inequality*, letting $\{w_{ij}\}$ be the reversed order of $\{\|\mathbf{\epsilon_{ij}\|_2}\}$ can minimize the upper bound of the difference, which may further reduce the difference between two inputs. To conclude, we showed that re-assigning propagation weights according to "how close between the neighbor node feature and its center node feature" is beneficial in achieving optimal prediction performance. From this perspective, our local attention is designed to additionally assign more weights to the nodes that have more similar features with that of their center nodes.
 

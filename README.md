@@ -98,12 +98,13 @@ Since both prediction $\mathop{\arg\max} \Phi(\sum_{v_j \in N(v_i)}w_{ij}\mathbf
 $$
 \begin{equation}
 \begin{split}
-diff.
-&= \|(\sum_{v_j \in N(v_i)}w_{ij}\mathbf{x_j}) - (\sum_{v_j \in N(v_i)} w_{ij}\mathbf{x_j} - \sum_{v_j \in N(v_i)} w_{ij}\mathbf{\epsilon_{ij}})\|_2  \\
+diff. = 111
 
 \end{split}
 \end{equation}
 $$
+
+
 
 
 and according to the *rearrangement inequality*, letting $\{w_{ij}\}$ be the reversed order of $\{\|\mathbf{\epsilon_{ij}\|_2}\}$ can minimize the upper bound of the difference, which may further reduce the difference between two inputs. To conclude, we showed that re-assigning propagation weights according to "how close between the neighbor node feature and its center node feature" is beneficial in achieving optimal prediction performance. From this perspective, our local attention is designed to additionally assign more weights to the nodes that have more similar features with that of their center nodes.

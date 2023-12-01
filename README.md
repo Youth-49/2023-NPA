@@ -38,15 +38,21 @@ To evalute the performance of SGC+NPA, please run the commands in `run.sh`.
 
 We use $\mathbf{x_i}$ to denote the feature of node $v_i$ and use $y_i$ to denote the label of node $v_i$. Assume that the graph is ideally homogeneous, i.e., $\forall v_j \in N(v_i), y_j = y_i$. In other words, if we have a well-trained classifier $\Phi(\mathbf{x})$, we have:
 
-$$\forall v_j \in N(v_i), \mathop{\arg\max} \Phi(\mathbf{x_i}) = \mathop{\arg\max}\Phi(\mathbf{x_j}). \tag{1} \label{eq: ideal homogeneous}$$
+$$
+\forall v_j \in N(v_i), \mathop{\arg\max} \Phi(\mathbf{x_i}) = \mathop{\arg\max}\Phi(\mathbf{x_j}). \tag{1} \label{eq: ideal homogeneous}
+$$
 
 Considering the node $v_i$ and its immediate neighbors $v_j \in N(v_i)$ and the corresponding $w_{ij}$, we assume that each neighbor's feature is close to the $x_i$ with error $\mathbf{\epsilon_{ij}}$ :
 
-$$\mathbf{x_j} = \mathbf{x_i} + \mathbf{\epsilon_{ij}},$$
+$$
+\mathbf{x_j} = \mathbf{x_i} + \mathbf{\epsilon_{ij}},
+$$
 
 thus with weights $w_{ij}, \sum_{v_j \in N(v_i)}w_{ij} = 1$, the node's feature $x_i$ can be reconstructed by its immediate neighbors with errors:
 
-$$\mathbf{x_i} = \sum_{v_j \in N(v_i)} w_{ij}\mathbf{x_j} - \sum_{v_j \in N(v_i)} w_{ij}\mathbf{\epsilon_{ij}}. \tag{2} \label{eq: reconstruction}$$
+$$
+\mathbf{x_i} = \sum_{v_j \in N(v_i)} w_{ij}\mathbf{x_j} - \sum_{v_j \in N(v_i)} w_{ij}\mathbf{\epsilon_{ij}}. \tag{2} \label{eq: reconstruction}
+$$
 
 Here we sort the edge weights $w_{ij}$ in the descendant order, i.e., $\{w_{ij}\} = \{w_{ij_1} > w_{ij_2} > ... > w_{ij_{|N(v_i)|}}\}$. And rearrange its immediate neighbors' features such that the $L_2$ norm of $\epsilon_{ij}$ is ascendant, i.e., $`\{\mathbf{x_j}\} = \{\mathbf{x_{j_1}}, ..., \mathbf{x_{j_k}}, \mathbf{x_{j_{k+1}}}, ..., \mathbf{x_{j_{|N(v_i)|}}}\}, \forall k \in [1, |N(v_i)|-1], \|\mathbf{\epsilon_{ij_k}}\|_2 < \|\mathbf{\epsilon_{ij_{k+1}}}\|_2`$, we have:
 
@@ -81,7 +87,7 @@ Since both prediction $\mathop{\arg\max} \Phi(\sum_{v_j \in N(v_i)}w_{ij}\mathbf
 \begin{equation}\begin{split}
 diff. =& \|(\sum_{v_j \in N(v_i)}w_{ij}\mathbf{x_j}) - (\sum_{v_j \in N(v_i)} w_{ij}\mathbf{x_j} - \sum_{v_j \in N(v_i)} w_{ij}\mathbf{\epsilon_{ij}})\|_2  \\
  =& \|\sum_{v_j \in N(v_i)} w_{ij}\mathbf{\epsilon_{ij}}\|_2 \\ 
- \leq& \sum_{v_j\in N(v_i)}w_{ij}\|\mathbf{\epsilon_{ij}}\|_2.
+ \leq& \sum_{v_j\in N(v_i)}w_{ij}\|\mathbf{\epsilon_{ij}}\|_2,
  \end{split}\end{equation}
 ```
 

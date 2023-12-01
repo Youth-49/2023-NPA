@@ -96,15 +96,10 @@ Since both prediction $\mathop{\arg\max} \Phi(\sum_{v_j \in N(v_i)}w_{ij}\mathbf
 
 
 $$
-\begin{equation}
-\begin{split}
-\mathop{\arg\max} \Phi(\mathbf{x_i})
-=& \mathop{\arg\max} \Phi(\mathbf{x_j}; v_j \in N(v_i)) \\
-=& \mathop{\arg\max} \Phi(w_{ij}\mathbf{x_j}; v_j \in N(v_i)) \\
-=& \mathop{\arg\max} \Phi(w_{ij}\mathbf{x_j}+w_{ik}\mathbf{x_k}; v_j, v_k\in N(v_i))\\
-=& \mathop{\arg\max} \Phi(\sum_{v_j \in N(v_i)}w_{ij}\mathbf{x_j}).
-\end{split}
-\end{equation}
+diff.
+= \|(\sum_{v_j \in N(v_i)}w_{ij}\mathbf{x_j}) - (\sum_{v_j \in N(v_i)} w_{ij}\mathbf{x_j} - \sum_{v_j \in N(v_i)} w_{ij}\mathbf{\epsilon_{ij}})\|_2  \\
+= \|\sum_{v_j \in N(v_i)} w_{ij}\mathbf{\epsilon_{ij}}\|_2 \\
+\leq \sum_{v_j\in N(v_i)}w_{ij}\|\mathbf{\epsilon_{ij}}\|_2 ,
 $$
 
 
@@ -112,7 +107,3 @@ and according to the *rearrangement inequality*, letting $\{w_{ij}\}$ be the rev
 
 
 
-diff.
-&= \|(\sum_{v_j \in N(v_i)}w_{ij}\mathbf{x_j}) - (\sum_{v_j \in N(v_i)} w_{ij}\mathbf{x_j} - \sum_{v_j \in N(v_i)} w_{ij}\mathbf{\epsilon_{ij}})\|_2  \\
-&= \|\sum_{v_j \in N(v_i)} w_{ij}\mathbf{\epsilon_{ij}}\|_2 \\
-&\leq \sum_{v_j\in N(v_i)}w_{ij}\|\mathbf{\epsilon_{ij}}\|_2 ,

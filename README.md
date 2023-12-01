@@ -43,7 +43,7 @@ $$
 $$
 
 
-Considering the node $v_i$ and its immediate neighbors $v_j \in N(v_i)$ and the corresponding $w_{ij}$, we assume that each neighbor's feature is close to the $x_i$ with error $\mathbf{\epsilon_{ij}}$:
+Considering the node $v_i$ and its immediate neighbors $v_j \in N(v_i)$ and the corresponding $w_{ij}$, we assume that each neighbor's feature is close to the $x_i$ with error $\mathbf{\epsilon_{ij}}$ :
 
 
 $$
@@ -63,7 +63,7 @@ Here we sort the edge weights $w_{ij}$ in the descendant order, i.e., $\{w_{ij}\
 
 **Theorem 2:** Assigning weight $w_{ij_k}$ to neighbor feature $\mathbf{x_{j_k}}$ in propagation can lead to learning a well-trained classifier easier.
 
-**Proof.** Since we assume that we have an ideal homogeneous graph, from the perspective of Eq. $\eqref{eq: ideal homogeneous}$ of the homogeneous graph, Property 1 and Property 2 of well-trained classifier $\Phi$ in Theorem~\ref{theorem: 1}, we have:
+**Proof.** Since we assume that we have an ideal homogeneous graph, from the perspective of Eq. $\eqref{eq: ideal homogeneous}$ of the homogeneous graph, Property 1 and Property 2 of well-trained classifier $\Phi$ in Theorem 1, we have:
 
 
 $$
@@ -91,7 +91,7 @@ $$
 $$
 
 
-Since both prediction $\mathop{\arg\max} \Phi(\sum_{v_j \in N(v_i)}w_{ij}\mathbf{x_j})$ and $\mathop{\arg\max} \Phi(\sum_{v_j \in N(v_i)}w_{ij}\mathbf{x_j} - \sum_{v_j \in N(v_i)} w_{ij}\mathbf{\epsilon_{ij}})$ are equal to the prediction $\mathop{\arg\max} \Phi(\mathbf{x_i})$, a expected classifier should make the same prediction given the two inputs. If the two inputs are closer, the classifier is much easier to train to make the same prediction. On the contrary, if the two inputs are far away, the classifier must approximate a complex decision manifold in the feature space, which could be intractable, leading to sub-optimal results. Thus, we measure the difference between $\sum_{v_j \in N(v_i)}w_{ij}\mathbf{x_j}$ and $\sum_{v_j \in N(v_i)}w_{ij}\mathbf{x_j} - \sum_{v_j \in N(v_i)} w_{ij}\mathbf{\epsilon_{ij}}$:
+Since both prediction $\mathop{\arg\max} \Phi(\sum_{v_j \in N(v_i)}w_{ij}\mathbf{x_j})$ and $\mathop{\arg\max} \Phi(\sum_{v_j \in N(v_i)}w_{ij}\mathbf{x_j} - \sum_{v_j \in N(v_i)} w_{ij}\mathbf{\epsilon_{ij}})$ are equal to the prediction $\mathop{\arg\max} \Phi(\mathbf{x_i})$, a expected classifier should make the same prediction given the two inputs. If the two inputs are closer, the classifier is much easier to train to make the same prediction. On the contrary, if the two inputs are far away, the classifier must approximate a complex decision manifold in the feature space, which could be intractable, leading to sub-optimal results. Thus, we measure the difference between $\sum_{v_j \in N(v_i)}w_{ij}\mathbf{x_j}$ and  $\sum_{v_j \in N(v_i)}w_{ij}\mathbf{x_j} - \sum_{v_j \in N(v_i)} w_{ij}\mathbf{\epsilon_{ij}}$ :
 
 
 $$
@@ -105,4 +105,6 @@ $$
 \end{split}
 \end{equation}
 $$
-and according to the \textit{rearrangement inequality}, letting $\{w_{ij}\}$ be the reversed order of $\{\|\mathbf{\epsilon_{ij}\|_2}\}$ can minimize the upper bound of the difference, which may further reduce the difference between two inputs. To conclude, we showed that re-assigning propagation weights according to "how close between the neighbor node feature and its center node feature" is beneficial in achieving optimal prediction performance. From this perspective, our \texttt{local attention} is designed to additionally assign more weights to the nodes that have more similar features with that of their center nodes.
+
+
+and according to the *rearrangement inequality*, letting $\{w_{ij}\}$ be the reversed order of $\{\|\mathbf{\epsilon_{ij}\|_2}\}$ can minimize the upper bound of the difference, which may further reduce the difference between two inputs. To conclude, we showed that re-assigning propagation weights according to "how close between the neighbor node feature and its center node feature" is beneficial in achieving optimal prediction performance. From this perspective, our local attention is designed to additionally assign more weights to the nodes that have more similar features with that of their center nodes.

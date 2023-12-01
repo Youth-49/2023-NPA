@@ -27,6 +27,9 @@ To evalute the performance of SGC+NPA, please run the commands in `run.sh`.
 
 ### Theoretical Analysis
 
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
 
 **Theorem 1:** In discussed non-parametric GNNs, The classifier $\Phi(\mathbf{x})$ has 2 properties:
 

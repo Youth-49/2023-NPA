@@ -36,27 +36,26 @@ To evalute the performance of SGC+NPA, please run the commands in `run.sh`.
 **Proof.** When $\Phi$ is a linear classifier, i.e., $\Phi(\mathbf{x}) = softmax(\mathbf{Wx})$, due to the property of linear transformation and softmax, Property 1 and Property 2 are held. When $\Phi$ is a Multi-Layer Perceptron, i.e., $\Phi(\mathbf{x}) = softmax(MLP(\mathbf{x}))$. Assume that the activation in MLP is ReLU. We decompose the proof into each layer in MLP. Each layer contains a linear transformation and ReLU. Since ReLU is monotonic increasing when $x \geq 0$, it will not distort the relative relationship of two scalars. Due to the property of linear transformation and ReLU, Property 1 and Property 2 are held in each hidden layer. In the output layer, softmax will not distort the relative relationship of two scalars, either. Thus Property 1 and Property 2 are also held in the final output.
 
 We use $\mathbf{x_i}$ to denote the feature of node $v_i$ and use $y_i$ to denote the label of node $v_i$. Assume that the graph is ideally homogeneous, i.e., $\forall v_j \in N(v_i), y_j = y_i$. In other words, if we have a well-trained classifier $\Phi(\mathbf{x})$, we have:
+
+
 $$
-\begin{equation}
-\small
 \forall v_j \in N(v_i), \mathop{\arg\max} \Phi(\mathbf{x_i}) = \mathop{\arg\max}\Phi(\mathbf{x_j}). \tag{1} \label{eq: ideal homogeneous}
-\end{equation}
 $$
 
 
 Considering the node $v_i$ and its immediate neighbors $v_j \in N(v_i)$ and the corresponding $w_{ij}$, we assume that each neighbor's feature is close to the $x_i$ with error $\mathbf{\epsilon_{ij}}$:
+
+
 $$
-\begin{equation}
-\small
 \mathbf{x_j} = \mathbf{x_i} + \mathbf{\epsilon_{ij}},
-\end{equation}
 $$
+
+
 thus with weights $w_{ij}, \sum_{v_j \in N(v_i)}w_{ij} = 1$, the node's feature $x_i$ can be reconstructed by its immediate neighbors with errors:
+
+
 $$
-\begin{equation}
-\small
 \mathbf{x_i} = \sum_{v_j \in N(v_i)} w_{ij}\mathbf{x_j} - \sum_{v_j \in N(v_i)} w_{ij}\mathbf{\epsilon_{ij}}. \tag{2} \label{equation: reconstruction}
-\end{equation}
 $$
 
 
@@ -65,6 +64,8 @@ Here we sort the edge weights $w_{ij}$ in the descendant order, i.e., $\{w_{ij}\
 **Theorem 2:** Assigning weight $w_{ij_k}$ to neighbor feature $\mathbf{x_{j_k}}$ in propagation can lead to learning a well-trained classifier easier.
 
 **Proof.** Since we assume that we have an ideal homogeneous graph, from the perspective of Eq. $\eqref{eq: ideal homogeneous}$ of the homogeneous graph, Property 1 and Property 2 of well-trained classifier $\Phi$ in Theorem~\ref{theorem: 1}, we have:
+
+
 $$
 \begin{equation}
 \begin{split}
@@ -77,14 +78,22 @@ $$
 \end{split}
 \end{equation}
 $$
+
+
 From another perspective, with Eq. $\eqref{equation: reconstruction}$, we have:
+
+
 $$
 \begin{equation}
 \small
 \mathop{\arg\max} \Phi(\mathbf{x_i}) = \mathop{\arg\max} \Phi(\sum_{v_j \in N(v_i)}w_{ij}\mathbf{x_j} - \sum_{v_j \in N(v_i)} w_{ij}\mathbf{\epsilon_{ij}}).
 \end{equation}
 $$
+
+
 Since both prediction $\mathop{\arg\max} \Phi(\sum_{v_j \in N(v_i)}w_{ij}\mathbf{x_j})$ and $\mathop{\arg\max} \Phi(\sum_{v_j \in N(v_i)}w_{ij}\mathbf{x_j} - \sum_{v_j \in N(v_i)} w_{ij}\mathbf{\epsilon_{ij}})$ are equal to the prediction $\mathop{\arg\max} \Phi(\mathbf{x_i})$, a expected classifier should make the same prediction given the two inputs. If the two inputs are closer, the classifier is much easier to train to make the same prediction. On the contrary, if the two inputs are far away, the classifier must approximate a complex decision manifold in the feature space, which could be intractable, leading to sub-optimal results. Thus, we measure the difference between $\sum_{v_j \in N(v_i)}w_{ij}\mathbf{x_j}$ and $\sum_{v_j \in N(v_i)}w_{ij}\mathbf{x_j} - \sum_{v_j \in N(v_i)} w_{ij}\mathbf{\epsilon_{ij}}$:
+
+
 $$
 \begin{equation}
 \begin{split}

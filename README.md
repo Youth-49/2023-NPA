@@ -27,9 +27,6 @@ To evalute the performance of SGC+NPA, please run the commands in `run.sh`.
 
 ### Theoretical Analysis
 
-<script type="text/javascript"
-  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
 
 **Theorem 1:** In discussed non-parametric GNNs, The classifier $\Phi(\mathbf{x})$ has 2 properties:
 
@@ -51,7 +48,7 @@ thus with weights $w_{ij}, \sum_{v_j \in N(v_i)}w_{ij} = 1$, the node's feature 
 
 $$\mathbf{x_i} = \sum_{v_j \in N(v_i)} w_{ij}\mathbf{x_j} - \sum_{v_j \in N(v_i)} w_{ij}\mathbf{\epsilon_{ij}}. \tag{2} \label{eq: reconstruction}$$
 
-Here we sort the edge weights $w_{ij}$ in the descendant order, i.e., $\{w_{ij}\} = \{w_{ij_1} > w_{ij_2} > ... > w_{ij_{|N(v_i)|}}\}$. And rearrange its immediate neighbors' features such that the $L_2$ norm of $\epsilon_{ij}$ is ascendant, i.e., $\{\mathbf{x_j}\} = \{\mathbf{x_{j_1}}, ..., \mathbf{x_{j_k}}, \mathbf{x_{j_{k+1}}}, ..., \mathbf{x_{j_{|N(v_i)|}}}\}, \forall k \in [1, |N(v_i)|-1], \|\mathbf{\epsilon_{ij_k}}\|_2 < \|\mathbf{\epsilon_{ij_{k+1}}}\|_2$, we have:
+Here we sort the edge weights $w_{ij}$ in the descendant order, i.e., $`\{w_{ij}\} = \{w_{ij_1} > w_{ij_2} > ... > w_{ij_{|N(v_i)|}}\}$. And rearrange its immediate neighbors' features such that the $L_2$ norm of $\epsilon_{ij}$ is ascendant, i.e., $\{\mathbf{x_j}\} = \{\mathbf{x_{j_1}}, ..., \mathbf{x_{j_k}}, \mathbf{x_{j_{k+1}}}, ..., \mathbf{x_{j_{|N(v_i)|}}}\}, \forall k \in [1, |N(v_i)|-1], \|\mathbf{\epsilon_{ij_k}}\|_2 < \|\mathbf{\epsilon_{ij_{k+1}}}\|_2`$, we have:
 
 **Theorem 2:** Assigning weight $w_{ij_k}$ to neighbor feature $\mathbf{x_{j_k}}$ in propagation can lead to learning a well-trained classifier easier.
 

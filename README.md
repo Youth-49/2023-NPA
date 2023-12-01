@@ -98,7 +98,7 @@ Since both prediction $\mathop{\arg\max} \Phi(\sum_{v_j \in N(v_i)}w_{ij}\mathbf
 $$
 \begin{equation}
 \begin{split}
-diff. = 111
+a = 111
 
 \end{split}
 \end{equation}

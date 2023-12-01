@@ -1,7 +1,8 @@
-## Towards Better Propagation of Non-parametric GNNs
-
+## NPA: Improving Large-scale Graph Neural Networks with
+Non-parametric Attention
 
 ### Overview
+
 This repo contains an example implementation of the Non-Parameter Attention (NPA) with SGC as a baseline. Equipped with NPA, SGC can achieve significant performance gains without losing scalability.
 
 

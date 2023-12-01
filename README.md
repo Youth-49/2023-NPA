@@ -1,5 +1,4 @@
-## NPA: Improving Large-scale Graph Neural Networks with
-Non-parametric Attention
+## NPA: Improving Large-scale Graph Neural Networks with Non-parametric Attention
 
 ### Overview
 

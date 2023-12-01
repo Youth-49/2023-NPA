@@ -1,5 +1,3 @@
-
-
 ## NPA: Improving Large-scale Graph Neural Networks with Non-parametric Attention
 
 ### Overview
@@ -57,7 +55,7 @@ thus with weights $w_{ij}, \sum_{v_j \in N(v_i)}w_{ij} = 1$, the node's feature 
 
 
 $$
-\mathbf{x_i} = \sum_{v_j \in N(v_i)} w_{ij}\mathbf{x_j} - \sum_{v_j \in N(v_i)} w_{ij}\mathbf{\epsilon_{ij}}. \tag{2} \label{equation: reconstruction}
+\mathbf{x_i} = \sum_{v_j \in N(v_i)} w_{ij}\mathbf{x_j} - \sum_{v_j \in N(v_i)} w_{ij}\mathbf{\epsilon_{ij}}. \tag{2} \label{eq: reconstruction}
 $$
 
 
@@ -81,7 +79,7 @@ $$
 $$
 
 
-From another perspective, with Eq. $\eqref{equation: reconstruction}$, we have:
+From another perspective, with Eq. $\eqref{eq: reconstruction}$, we have:
 
 
 $$
@@ -91,18 +89,20 @@ $$
 \end{equation}
 $$
 
-
 Since both prediction $\mathop{\arg\max} \Phi(\sum_{v_j \in N(v_i)}w_{ij}\mathbf{x_j})$ and $\mathop{\arg\max} \Phi(\sum_{v_j \in N(v_i)}w_{ij}\mathbf{x_j} - \sum_{v_j \in N(v_i)} w_{ij}\mathbf{\epsilon_{ij}})$ are equal to the prediction $\mathop{\arg\max} \Phi(\mathbf{x_i})$, a expected classifier should make the same prediction given the two inputs. If the two inputs are closer, the classifier is much easier to train to make the same prediction. On the contrary, if the two inputs are far away, the classifier must approximate a complex decision manifold in the feature space, which could be intractable, leading to sub-optimal results. Thus, we measure the difference between $\sum_{v_j \in N(v_i)}w_{ij}\mathbf{x_j}$ and  $\sum_{v_j \in N(v_i)}w_{ij}\mathbf{x_j} - \sum_{v_j \in N(v_i)} w_{ij}\mathbf{\epsilon_{ij}}$ as:
 
 
-$$\begin{equation}
+$$
+\begin{equation}
 \begin{split}
 diff.
 &= \|(\sum_{v_j \in N(v_i)}w_{ij}\mathbf{x_j}) - (\sum_{v_j \in N(v_i)} w_{ij}\mathbf{x_j} - \sum_{v_j \in N(v_i)} w_{ij}\mathbf{\epsilon_{ij}})\|_2  \\
 &= \|\sum_{v_j \in N(v_i)} w_{ij}\mathbf{\epsilon_{ij}}\|_2 \\
 &\leq \sum_{v_j\in N(v_i)}w_{ij}\|\mathbf{\epsilon_{ij}}\|_2 ,\\
 \end{split}
-\end{equation}$$
+\end{equation}
+$$
+
 
 
 and according to the *rearrangement inequality*, letting $\{w_{ij}\}$ be the reversed order of $\{\|\mathbf{\epsilon_{ij}\|_2}\}$ can minimize the upper bound of the difference, which may further reduce the difference between two inputs. To conclude, we showed that re-assigning propagation weights according to "how close between the neighbor node feature and its center node feature" is beneficial in achieving optimal prediction performance. From this perspective, our local attention is designed to additionally assign more weights to the nodes that have more similar features with that of their center nodes.

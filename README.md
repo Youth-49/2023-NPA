@@ -1,3 +1,7 @@
+```
+
+```
+
 ## NPA: Improving Large-scale Graph Neural Networks with Non-parametric Attention
 
 ### Overview
@@ -95,7 +99,6 @@ Since both prediction $\mathop{\arg\max} \Phi(\sum_{v_j \in N(v_i)}w_{ij}\mathbf
 
 $$
 a = 111
-
 $$
 
 
@@ -103,3 +106,10 @@ and according to the *rearrangement inequality*, letting $\{w_{ij}\}$ be the rev
 
 
 
+&= \|(\sum_{v_j \in N(v_i)}w_{ij}\mathbf{x_j}) - (\sum_{v_j \in N(v_i)} w_{ij}\mathbf{x_j} - \sum_{v_j \in N(v_i)} w_{ij}\mathbf{\epsilon_{ij}})\|_2  \\
+&= \|\sum_{v_j \in N(v_i)} w_{ij}\mathbf{\epsilon_{ij}}\|_2 \\
+&\leq \sum_{v_j\in N(v_i)}w_{ij}\|\mathbf{\epsilon_{ij}}\|_2 ,
+
+
+
+```

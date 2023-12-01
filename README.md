@@ -28,7 +28,6 @@ To evalute the performance of SGC+NPA, please run the commands in `run.sh`.
 ### Theoretical Analysis
 
 
-
 **Theorem 1:** In discussed non-parametric GNNs, The classifier $\Phi(\mathbf{x})$ has 2 properties:
 
 - Property 1: Given feature $\mathbf{x_a} \in R^f$ ($f$ is feature dimension) and a non-zero scalar $m \in R$, $\arg\max \Phi(\mathbf{x_a}) = \mathop{\arg\max}\Phi(m\mathbf{x_a})$.
@@ -87,7 +86,7 @@ Since both prediction $\mathop{\arg\max} \Phi(\sum_{v_j \in N(v_i)}w_{ij}\mathbf
 $$
 \begin{equation}
 \begin{split}
-\textit{diff.}
+diff. 
 =& \|(\sum_{v_j \in N(v_i)}w_{ij}\mathbf{x_j}) - (\sum_{v_j \in N(v_i)} w_{ij}\mathbf{x_j} - \sum_{v_j \in N(v_i)} w_{ij}\mathbf{\epsilon_{ij}})\|_2  \\
 =& \|\sum_{v_j \in N(v_i)} w_{ij}\mathbf{\epsilon_{ij}}\|_2 \\
 \leq& \sum_{v_j\in N(v_i)}w_{ij}\|\mathbf{\epsilon_{ij}}\|_2.

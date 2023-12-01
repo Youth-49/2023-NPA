@@ -59,7 +59,7 @@ $$
 $$
 
 
-Here we sort the edge weights $w_{ij}$ in the descendant order, i.e., $\{w_{ij}\} = \{w_{ij_1} > w_{ij_2} > ... > w_{ij_{|N(v_i)|}}\}$. And rearrange its immediate neighbors' features such that the $L_2$ norm of $\epsilon_{ij}$ is ascendant, i.e., $\{\mathbf{x_j}\} = \{\mathbf{x_{j_1}}, ..., \mathbf{x_{j_k}}, \mathbf{x_{j_{k+1}}}, ..., \mathbf{x_{j_{|N(v_i)|}}}\}, \forall k \in [1, |N(v_i)|-1], \|\mathbf{\epsilon_{ij_k}}\|_2 < \|\mathbf{\epsilon_{ij_{k+1}}}\|_2$, we have:
+Here we sort the edge weights $w_{ij}$ in the descendant order, i.e., $\{w_{ij}\} = \{w_{ij_1} > w_{ij_2} > ... > w_{ij_{|N(v_i)|}}\}$. And rearrange its immediate neighbors' features such that the $L_2$ norm of $\epsilon_{ij}$ is ascendant, i.e.,  $\{\mathbf{x_j}\} = \{\mathbf{x_{j_1}}, ..., \mathbf{x_{j_k}}, \mathbf{x_{j_{k+1}}}, ..., \mathbf{x_{j_{|N(v_i)|}}}\}, \forall k \in [1, |N(v_i)|-1], \|\mathbf{\epsilon_{ij_k}}\|_2 < \|\mathbf{\epsilon_{ij_{k+1}}}\|_2$ , we have:
 
 **Theorem 2:** Assigning weight $w_{ij_k}$ to neighbor feature $\mathbf{x_{j_k}}$ in propagation can lead to learning a well-trained classifier easier.
 
@@ -69,7 +69,6 @@ Here we sort the edge weights $w_{ij}$ in the descendant order, i.e., $\{w_{ij}\
 $$
 \begin{equation}
 \begin{split}
-\small
 \mathop{\arg\max} \Phi(\mathbf{x_i})
 =& \mathop{\arg\max} \Phi(\mathbf{x_j}; v_j \in N(v_i)) \\
 =& \mathop{\arg\max} \Phi(w_{ij}\mathbf{x_j}; v_j \in N(v_i)) \\
@@ -97,11 +96,10 @@ Since both prediction $\mathop{\arg\max} \Phi(\sum_{v_j \in N(v_i)}w_{ij}\mathbf
 $$
 \begin{equation}
 \begin{split}
-\small
 \textit{diff.}
-=& \|(\sum_{v_j \in N(v_i)}w_{ij}\mathbf{x_j}) - (\sum_{v_j \in N(v_i)} w_{ij}\mathbf{x_j} - \sum_{v_j \in N(v_i)} w_{ij}\mathbf{\epsilon_{ij}})\|_2  \\
-=& \|\sum_{v_j \in N(v_i)} w_{ij}\mathbf{\epsilon_{ij}}\|_2 \\
-\leq& \sum_{v_j\in N(v_i)}w_{ij}\|\mathbf{\epsilon_{ij}}\|_2 ,
+&= \|(\sum_{v_j \in N(v_i)}w_{ij}\mathbf{x_j}) - (\sum_{v_j \in N(v_i)} w_{ij}\mathbf{x_j} - \sum_{v_j \in N(v_i)} w_{ij}\mathbf{\epsilon_{ij}})\|_2  \\
+&= \|\sum_{v_j \in N(v_i)} w_{ij}\mathbf{\epsilon_{ij}}\|_2 \\
+&\leq \sum_{v_j\in N(v_i)}w_{ij}\|\mathbf{\epsilon_{ij}}\|_2 ,
 \end{split}
 \end{equation}
 $$

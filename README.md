@@ -98,7 +98,7 @@ Since both prediction $\mathop{\arg\max} \Phi(\sum_{v_j \in N(v_i)}w_{ij}\mathbf
 $$
 \begin{equation}
 \begin{split}
-\textit{diff.}
+diff.
 &= \|(\sum_{v_j \in N(v_i)}w_{ij}\mathbf{x_j}) - (\sum_{v_j \in N(v_i)} w_{ij}\mathbf{x_j} - \sum_{v_j \in N(v_i)} w_{ij}\mathbf{\epsilon_{ij}})\|_2  \\
 &= \|\sum_{v_j \in N(v_i)} w_{ij}\mathbf{\epsilon_{ij}}\|_2 \\
 &\leq \sum_{v_j\in N(v_i)}w_{ij}\|\mathbf{\epsilon_{ij}}\|_2 ,
